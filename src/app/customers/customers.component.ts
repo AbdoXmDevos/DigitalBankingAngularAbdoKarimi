@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import {CustomersService} from "../services/customers.service";
 import { Router } from '@angular/router';
 import {Customer} from "../model/customer.model";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-customers',
@@ -19,7 +20,8 @@ export class CustomersComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private customersService: CustomersService,private router: Router) { }
+  constructor(private customersService: CustomersService,private router: Router,
+              public authService :AuthService) { }
 
   ngOnInit(): void {
     this.fetchCustomers();
@@ -35,7 +37,7 @@ export class CustomersComponent implements OnInit {
   }
 
   editCustomer(id: number) {
-    this.router.navigate(['/update-customer', id]);
+    this.router.navigate(['/admin/update-customer', id]);
   }
   deleteCustomer(customer: any) {
     if (confirm("Are you sure you want to delete this customer?")) {
@@ -50,6 +52,7 @@ export class CustomersComponent implements OnInit {
   }
   viewCustomerAccounts(customer: Customer) {
     // Rediriger vers la page pour afficher les comptes du client avec l'ID correspondant
-    this.router.navigateByUrl("/customer-accounts/"+customer.id);
+    this.router.navigateByUrl("/admin/customer-accounts/"+customer.id);
   }
+
 }

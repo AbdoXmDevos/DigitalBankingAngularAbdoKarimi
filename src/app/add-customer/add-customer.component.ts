@@ -15,7 +15,7 @@ export class AddCustomerComponent {
 
   addCustomer() {
     this.customersService.addCustomer(this.newCustomer).subscribe(() => {
-      this.router.navigate(['/customers']); // Rediriger vers la liste des clients après l'ajout
+      this.router.navigate(['/admin/customers']); // Rediriger vers la liste des clients après l'ajout
     });
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccountDetails, AccountOperation } from '../model/account.model';
 import { AccountService } from '../services/account.service';
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-accounts',
@@ -14,7 +15,8 @@ export class AccountsComponent implements OnInit {
   operations: AccountOperation[] = [];
   operationFormGroup!: FormGroup;
 
-  constructor(private accountService: AccountService, private formBuilder: FormBuilder) { }
+  constructor(private accountService: AccountService, private formBuilder: FormBuilder
+  , public authService : AuthService) { }
 
   ngOnInit(): void {
     this.operationFormGroup = this.formBuilder.group({

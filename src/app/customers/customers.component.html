@@ -11,7 +11,7 @@
           <mat-label>Filter</mat-label>
           <input matInput (change)="filterData($event)">
         </mat-form-field>
-        <button routerLink="/add-customer" mat-raised-button color="accent">Add Customer</button>
+        <button routerLink="/admin/add-customer" mat-raised-button color="accent">Add Customer</button>
       </div>
       <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z1">
 
@@ -41,14 +41,15 @@
           </td>
         </ng-container>
 
-        <ng-container matColumnDef="delete">
-          <th mat-header-cell *matHeaderCellDef> Delete </th>
-          <td mat-cell *matCellDef="let element">
-            <button mat-icon-button color="warn" (click)="deleteCustomer(element)">
+        <ng-container matColumnDef="delete" >
+          <th mat-header-cell *matHeaderCellDef > Delete </th>
+          <td mat-cell *matCellDef="let element" >
+            <button  mat-icon-button color="warn" (click)="deleteCustomer(element)">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
         </ng-container>
+
         <ng-container matColumnDef="viewAccounts">
           <th mat-header-cell *matHeaderCellDef> View Accounts </th>
           <td mat-cell *matCellDef="let element">

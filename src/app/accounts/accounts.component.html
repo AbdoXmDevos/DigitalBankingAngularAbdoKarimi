@@ -48,9 +48,9 @@
     </table>
   </div>
 
-  <div class="container mt-3">
+  <div class="container mt-3"  >
     <h2>Effectuer une opération</h2>
-    <form [formGroup]="operationFormGroup" (ngSubmit)="handleAccountOperation()">
+    <form [formGroup]="operationFormGroup" (ngSubmit)="handleAccountOperation()" *ngIf="this.authService.roles.includes('ADMIN')">
       <div class="mb-3">
         <label class="form-label">Type d'opération:</label><br>
         <div class="form-check form-check-inline">

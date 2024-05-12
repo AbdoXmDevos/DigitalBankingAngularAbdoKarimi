@@ -32,11 +32,11 @@ export class UpdateCustomerComponent implements OnInit {
 
   submitForm() {
     this.customersService.updateCustomer(this.customer).subscribe(() => {
-      this.router.navigate(['/customers']); // Rediriger vers la liste des clients après la modification
+      this.router.navigate(['/admin/customers']); // Rediriger vers la liste des clients après la modification
     });
   }
 
   goBack() {
-    this.router.navigate(['/customers']); // Rediriger vers la liste des clients sans sauvegarder les modifications
+    this.router.navigate(['/admin/customers']); // Rediriger vers la liste des clients sans sauvegarder les modifications
   }
 }
